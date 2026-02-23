@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm
+.idea/
+
+# Claude
+.claude/
+
+# Old results
+test_results_old_elbow/
