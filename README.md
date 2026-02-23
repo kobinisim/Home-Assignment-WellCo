@@ -124,6 +124,12 @@ Model performance was evaluated using **5-fold cross-validation** with **AUC-ROC
 
 Three models were compared — Logistic Regression, Random Forest, and XGBoost. Logistic Regression outperformed the more complex models, suggesting the relationship between features and churn is predominantly linear. It was selected as the final model.
 
+A notable observation from comparing the two models: outreach is the most important feature in Logistic Regression (coefficient: -0.2453) but ranks near the bottom in Random Forest (importance: 0.0254). The two models are essentially saying the same thing from different angles:
+- **LR says:** "outreach has a strong direct effect on churn"
+- **RF says:** "outreach doesn't help identify who is likely to churn"
+
+Both are correct. Outreach reduces churn (LR captures this) but it doesn't predict who will churn (RF captures this). This is exactly why Logistic Regression is better suited for this task — we are not just trying to predict who churns, we are trying to estimate the effect of outreach on each member.
+
 ---
 
 ### Using Outreach Data in Modelling
