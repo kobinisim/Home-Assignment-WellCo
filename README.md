@@ -140,7 +140,7 @@ The optimal n is **not driven by cost alone**. Three factors were considered:
 
 1. **Cost:** Outreach has a constant marginal cost per member. We should only contact members where the expected benefit justifies this cost — members who are genuinely at risk of churning and would respond to outreach.
 
-2. **Churn risk threshold:** We set a minimum churn probability threshold of **0.3** to define "genuinely at risk." This threshold is grounded in the observed churn rate of ~20% in the training data. Members below this threshold are unlikely to churn regardless of outreach, making the cost unjustified.
+2. **Churn risk threshold:** The 0.3 threshold was chosen pragmatically — it produces a list of approximately 20% of test members, consistent with the observed churn rate in training data. It is a business decision balancing outreach cost against coverage. A lower threshold would reach more members at higher cost; a higher threshold would be more selective but risk missing genuine churners. This threshold should be revisited and calibrated as more data becomes available.
 
 3. **Two-step filtering:** Members are first filtered by the churn probability threshold, then ranked by `prioritization_score`. This prevents members with low churn risk but high clinical priority (ICD boost) from appearing in the outreach list — clinical priority should influence ranking among at-risk members, not override the risk requirement itself.
 
